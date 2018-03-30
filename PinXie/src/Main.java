@@ -7,7 +7,7 @@ public class Main {
 private String content="";
 	public static void main(String[] args) {
 
-		String dd="";
+		String dd="conrtentty";
 		Main m = new Main();
 		int min = 1000;
 		String output="";
@@ -24,7 +24,7 @@ private String content="";
 				}
 				//System.out.println(dd+"------"+key+"------:"+d);
 			}
-			System.out.println("output------"+output);
+			System.out.println("input------"+dd+"------output------"+output);
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
