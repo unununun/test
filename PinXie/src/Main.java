@@ -7,10 +7,25 @@ public class Main {
 private String content="";
 	public static void main(String[] args) {
 
+		String dd="";
 		Main m = new Main();
+		int min = 1000;
+		String output="";
 		try {
 			String c=m.getListFile("C:\\Users\\Administrator\\Desktop\\英文小说原著大全");
-			m.findEnglishNum(c);
+			Map<String, Integer> result =findEnglishNum(c);
+			Iterator<String> iter = result.keySet().iterator();
+			while (iter.hasNext()) {
+				String key = iter.next();
+				int d = EditDistance.getEditDistance(dd, key);
+				if(min>d){
+					min=d;
+					output=key;
+				}
+				//System.out.println(dd+"------"+key+"------:"+d);
+			}
+			System.out.println("output------"+output);
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -62,7 +77,7 @@ private String content="";
 	 * 
 	 * @param text
 	 */
-	public static void findEnglishNum(String text) {
+	public static Map findEnglishNum(String text) {
 
 		
 		// 找出所有的单词
@@ -105,15 +120,17 @@ private String content="";
 	        {  
 	            result.put( entry.getKey(), entry.getValue() );  
 	        }
+	        
+	        return result;
 
-		// 输出到控制台
-		System.out.println("各个单词出现的频率为：");
-		Iterator<String> iter = result.keySet().iterator();
-		while (iter.hasNext()) {
-			String key = iter.next();
-			Integer num = result.get(key);
-			System.out.println(key + "\t\t" + num + "次\n-------------------");
-		}
+//		// 输出到控制台
+//		System.out.println("各个单词出现的频率为：");
+//		Iterator<String> iter = result.keySet().iterator();
+//		while (iter.hasNext()) {
+//			String key = iter.next();
+//			Integer num = result.get(key);
+//			System.out.println(key + "\t\t" + num + "次\n-------------------");
+//		}
 		
 		
 	}

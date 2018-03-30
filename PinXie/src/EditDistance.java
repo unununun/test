@@ -1,15 +1,3 @@
-/**
- * 编辑距离(删除，添加，替换 得到相等字符串所需次数)算法 s = "eeba", t="abac"
- * 使用一个二维数组记录所需编辑次数(s为纵向，t为横向)， 0 1 2 3 4 1 1 2 3 4 2 2 2 3 4 3 3 2 3 4 4 3 3 2
- * 3 第二列为当t取一个字符a的时候，s依次为 ""、"e"、"ee"、"eeb"、"eeba"所需的编辑距离 其余的类似
- * 以动态规划角度来看，以edit(i,j)来代表矩阵中的元素，其意义为i代表s取前i个字符，j代表t取前个字符
- * 如edit(2,2)代表s="ee"，t="ab"的编辑距离，在矩阵中为2（代码中还有一个0行）
- * edit(i,j)=minist(edit(i,j-1)+1, edit(i-1,j)+1, edit(i-1,j-1)+cost)
- * edit(2,2)=minist(edit(2,1)+1, edit(1,2)+1, edit(1,1)+cost)
- * 即取("ee","a")("e","ab")("ee","ab")三个编辑距离中的最小值
- * s.charAt(i-1)==t.charAt(j-1)时，cost=1
- * 
- */
 public class EditDistance {
 	public static void main(String[] args) {
 		String s = "eeba", t = "abac";
@@ -65,7 +53,7 @@ public class EditDistance {
 			}
 		}
 		// Step 7
-		print(d, m, n);
+		//print(d, m, n);
 		return d[n][m];
 	}
 
