@@ -14,7 +14,7 @@ public class Ren extends Thread {
 			synchronized (o) {
 				if(YinHang.qian>0){
 					YinHang.qian=YinHang.qian-100;
-					System.out.println(getName() + "»°¡À" + 100 + "«Æ£¨ªπ ££∫"+YinHang.qian);
+					System.out.println(getName() + "dd" + 100 + "dd"+YinHang.qian);
 				}else{
 					System.out.println("fi");
 				}

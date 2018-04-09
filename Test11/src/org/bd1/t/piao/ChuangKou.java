@@ -15,7 +15,7 @@ public class ChuangKou extends Thread {
 			synchronized (o) {
 				if(shuliang>0){
 					shuliang--;
-					System.out.println(getName() + "卖出了第" + shuliang + "张票");
+					System.out.println(getName() + "fff" + shuliang + "fff");
 				}else{
 					System.out.println("fi");
 				}
