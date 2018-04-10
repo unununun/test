@@ -1,4 +1,4 @@
-package org.bd1.s;
+package org.bd1.t.kfc;
 
 public class KeHu extends Thread{
 	
