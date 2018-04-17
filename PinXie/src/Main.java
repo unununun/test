@@ -7,7 +7,7 @@ public class Main {
 private String content="";
 	public static void main(String[] args) {
 
-		String dd="listan";
+		String dd="pruvate";
 		Main m = new Main();
 		int min = 1000;
 		String output="";

@@ -1,14 +1,12 @@
 package org.bd1.nio;
 
-import java.io.IOException;
-
-public class TestServer{
+public class TestClient {
 	public static void main(String[] args) {
 		try {
-			TestServerThread tst = new TestServerThread();
+			TestClientThread tst = new TestClientThread();
 			Thread t1 = new Thread(tst);
 			t1.start();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
