@@ -1,4 +1,4 @@
-package org.bd1.nio;
+package org.bd1.n;
 
 public class TestClient {
 	public static void main(String[] args) {

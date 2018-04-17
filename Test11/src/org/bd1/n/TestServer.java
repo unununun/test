@@ -1,4 +1,4 @@
-package org.bd1.nio;
+package org.bd1.n;
 
 import java.io.IOException;
 

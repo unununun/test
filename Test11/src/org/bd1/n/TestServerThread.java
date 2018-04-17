@@ -1,4 +1,4 @@
-package org.bd1.nio;
+package org.bd1.n;
 
 import java.io.*; //引入Java.io包 
 import java.net.*; //引入Java.net包 
