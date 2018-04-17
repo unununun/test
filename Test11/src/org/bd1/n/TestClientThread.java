@@ -24,9 +24,10 @@ public class TestClientThread implements Runnable {
 
 	public void run() {
 		
-		while (true) {
+		//while (true) {
 			try {
-				write();
+				
+				
 				selector.select(1000);//无论是否有读写事件发生，selector每隔1s被唤醒一次
 				Set<SelectionKey> keys = selector.selectedKeys();
 				Iterator<SelectionKey> it = keys.iterator();
@@ -39,10 +40,11 @@ public class TestClientThread implements Runnable {
 						
 					}
 				}
+				write();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		//}
 	}
 
 	private void write() throws ClosedChannelException, IOException {

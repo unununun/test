@@ -15,10 +15,7 @@ public class TestServerThread implements Runnable {
 	 * Selector对象，负责监控所有的连接到服务器的网络事件的发生
 	 */
 	private Selector selector;
-	/**
-	 * 总的活动连接数
-	 */
-	private int activeSockets;
+
 	/**
 	 * 服务器Channel绑定的端口号
 	 */
@@ -29,13 +26,15 @@ public class TestServerThread implements Runnable {
 	 * 构造函数
 	 */
 	public TestServerThread() throws IOException {
-		selector = Selector.open();
+		
 		// 打开监听通道
 		serverChannel = ServerSocketChannel.open();
 		// 如果为 true，则此通道将被置于阻塞模式；如果为 false，则此通道将被置于非阻塞模式
 		serverChannel.configureBlocking(false);// 开启非阻塞模式
 		// 绑定端口
-		serverChannel.socket().bind(new InetSocketAddress(port));
+		serverChannel.socket().bind(new InetSocketAddress("127.0.0.1",port));
+		
+		selector = Selector.open();
 		// 监听客户端连接请求
 		serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 
@@ -54,10 +53,7 @@ public class TestServerThread implements Runnable {
 			 * 得到活动的网络连接选择键的集合
 			 */
 			Set<SelectionKey> keys = selector.selectedKeys();
-			activeSockets = keys.size();// 获取活动连接的数目
-			if (activeSockets == 0) {
-				continue;// 如果连接数为0，则继续进行循环操作
-			}
+
 			/**
 			 * /** 应用For—Each循环遍历整个选择键集合
 			 */
