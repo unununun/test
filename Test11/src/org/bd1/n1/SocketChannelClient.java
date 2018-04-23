@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.*;
 
 public class SocketChannelClient {
+
 	 private String host = "127.0.0.1";// 要发送给服务端的ip
 	 
 	    private int port = 8000;// 要发送给服务端的端口
@@ -26,4 +27,5 @@ public class SocketChannelClient {
 	    public static void main(String[] args) throws IOException {
 	        new SocketChannelClient();
 	    }
+
 }

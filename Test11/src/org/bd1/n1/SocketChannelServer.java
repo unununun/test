@@ -7,6 +7,7 @@ import java.util.*;
 
 public class SocketChannelServer {
 	private int port = 8000;// 端口
+
 	 
     public SocketChannelServer() throws Exception {
         
@@ -57,4 +58,5 @@ public class SocketChannelServer {
     public static void main(String[] args) throws Exception {
         new SocketChannelServer();
     }
+
 }
