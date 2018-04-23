@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
-import java.util.*;
 
 public class SocketChannelClient {
 	 private String host = "127.0.0.1";// 要发送给服务端的ip
@@ -15,20 +14,9 @@ public class SocketChannelClient {
 	        SocketChannel sc = SocketChannel.open(new InetSocketAddress(host, port));// 打开一个SocketChannel并连接到服务器
 	        sc.configureBlocking(false);
 	 
-	        // 从server接受消息
-	        ByteBuffer readbuffer = ByteBuffer.allocate(20);
-	        sc.read(readbuffer);
-	 
-	        readbuffer.flip();// 准备读取
-	 
-	        String receiveMsg = "";// 将字节转化为字符串
-	        while (readbuffer.hasRemaining()) {
-	            receiveMsg += String.valueOf((char) readbuffer.get());
-	        }
-	        System.out.println("client receive msg===" + receiveMsg);
 	 
 	        // 发送消息给server
-	        String sendMsg = "I am a coder.";
+	        String sendMsg = "I am a coder.哈哈哈哈";
 	        ByteBuffer writeBuffer = ByteBuffer.wrap(sendMsg.getBytes());
 	        System.out.println("client send msg===" + sendMsg);
 	        sc.write(writeBuffer);

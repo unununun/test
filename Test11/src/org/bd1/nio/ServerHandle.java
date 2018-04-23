@@ -144,6 +144,5 @@ public class ServerHandle implements Runnable{
 		writeBuffer.flip();
 		// 发送缓冲区的字节数组
 		channel.write(writeBuffer);
-		// ****此处不含处理“写半包”的代码
 	}
 }
