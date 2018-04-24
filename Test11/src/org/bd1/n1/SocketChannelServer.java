@@ -47,7 +47,8 @@ public class SocketChannelServer {
                 } else if (key.isWritable()) {// 写入
                     SocketChannel socketChannel = (SocketChannel) key.channel();// 获得与客户端通信的信道
                     String sendMsg = "hello world!";
-                    ByteBuffer writeBuffer = ByteBuffer.wrap(sendMsg.getBytes());
+                    ByteBuffer writeBuffer = ByteBuffer.allocate(2048);//2k,1024个中文
+                    writeBuffer.put(sendMsg.getBytes());
                     System.out.println("server send msg===" + sendMsg);
                     socketChannel.write(writeBuffer);
                 }
