@@ -40,14 +40,21 @@ public class Server {
 					 * 连接数并无影响，backlog影响的只是还没有被accept取出的连接
 					 */
 					.option(ChannelOption.SO_BACKLOG, 128) // 设置TCP缓冲区
-					.option(ChannelOption.SO_SNDBUF, 32 * 1024) // 设置发送数据缓冲大小
-					.option(ChannelOption.SO_RCVBUF, 32 * 1024) // 设置接受数据缓冲大小
 					.childOption(ChannelOption.SO_KEEPALIVE, true); // 保持连接
+			/**
+             * 绑定端口并启动去接收进来的连接
+             */
 			ChannelFuture future = bootstrap.bind(port).sync();
+			/**
+             * 这里会一直等待，直到socket被关闭
+             */
 			future.channel().closeFuture().sync();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			/***
+             * 关闭
+             */
 			workerGroup.shutdownGracefully();
 			bossGroup.shutdownGracefully();
 		}
